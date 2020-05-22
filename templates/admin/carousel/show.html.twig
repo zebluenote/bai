@@ -1,0 +1,62 @@
+{% extends 'base.admin.html.twig' %}
+
+{% block title %}
+  Affichage Carousel {{ carousel.slug }}
+{% endblock %}
+
+{% block body %}
+  <div class="container">
+    <h1>
+      Affichage du carousel : "{{ carousel.name }}"
+    </h1>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4">
+                <dl class="row">
+                    <dt class="col-md-4">Id. :</dt><dd class="col-md-8">{{ carousel.id }}</dd>
+                    <dt class="col-md-4">Nom :</dt><dd class="col-md-8">{{ carousel.name }}</dd>
+                    <dt class="col-md-4">Slug :</dt><dd class="col-md-8">{{ carousel.slug }}</dd>
+                    <dt class="col-md-4">Images :</dt><dd class="col-md-8">{{ carousel.carouselElements|length }}</dd>
+                </dl>
+                <a href="{{ path('admin_carousel_index') }}" class="btn btn-info">Retour à la liste</a>
+            </div>
+            <div class="col-md-8">
+                <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+                    <ol class="carousel-indicators">
+                        {% for image in carousel.carouselElements %}
+                            <li data-target="#carouselExampleIndicators" data-slide-to="{{ loop.index0 }}" class="{% if loop.first %}active{% endif %}"></li>
+                        {% endfor %}
+                    </ol>
+                    <div class="carousel-inner">
+                        {% for image in carousel.carouselElements %}
+                        <div class="carousel-item {% if loop.first %}active{% endif %}">
+                            <img src="{{ carousels_images_url }}/{{ image.image }}" class="d-block w-100" alt="{{ image.title }}">
+                            <div class="carousel-caption d-none d-md-block">
+                                <h5>{{ image.title }}</h5>
+                                <p>{{ image.description }}</p>
+                            </div>
+                        </div>
+                        {% endfor %}
+                    </div>
+                    <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Previous</span>
+                    </a>
+                    <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Next</span>
+                    </a>
+                </div>
+                <div class="col my-4 clearfix">
+                    <a href=" {{ path('admin_carousel_edit', {'id': carousel.id}) }} " class="btn btn-secondary float-left"><span class="fas fa-pen mr-2"></span>Modifier</a>
+                    <a href=" {{ path('admin_carousel_delete', {'id': carousel.id}) }} " class="btn btn-danger float-right"><span class="fas fa-trash mr-2"></span>Supprimer</a>
+                </div>
+            </div>
+       
+        </div>
+    </div>
+
+
+  </div>
+{% endblock %}

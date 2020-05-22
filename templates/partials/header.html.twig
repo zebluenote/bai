@@ -1,0 +1,127 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+
+  <a class="navbar-brand" href="{{ path('homepage') }}">
+    <img src="pictos/LOGO-BELAIR-1600px.png" alt="" class="img-fluid logo-sm" />
+  </a>
+
+  <button class="navbar-toggler"
+    type="button"
+    data-toggle="collapse"
+    data-target="#navbarColor01"
+    aria-controls="navbarColor01"
+    aria-expanded="false"
+    aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarColor01">
+
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="{{ path('homepage') }}">Accueil</a>
+      </li>
+      <li class="nav-item dropdown">
+        <a href="#"
+          class="nav-link dropdown-toggle"
+          data-toggle="dropdown"
+          role="button"
+          aria-haspopup="true"
+          aria-expanded="false">
+          Produits
+        </a>
+        <div class="dropdown-menu">
+          <a class="dropdown-item" href="{{ path('belair') }}">
+            Progiciel BELAIR
+          </a>
+          <a class="dropdown-item" href="{{ path('webservices') }}">
+            Logiciels "Web-Service"
+          </a>
+          <a class="dropdown-item" href="#">Something else here</a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" href="#">Separated link</a>
+        </div>
+      </li>
+      <li class="nav-item"><a class="nav-link" href="#">Features</a></li>
+      <li class="nav-item"><a class="nav-link" href="#">Pricing</a></li>
+      <li class="nav-item"><a class="nav-link" href="#">About</a></li>
+      {% if app.user %}
+      <li class="nav-item dropdown">
+        <a href="#"
+          class="nav-link dropdown-toggle"
+          data-toggle="dropdown"
+          role="button"
+          aria-haspopup="true"
+          aria-expanded="false">
+          Votre espace client
+        </a>
+        <div class="dropdown-menu">
+          <a class="dropdown-item" href="{{ path('espaceclient_accueil') }}">Accueil</a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" href="{{ path('espaceclient_releasenotes_belair') }}">Release notes BELAIR</a>
+          <a class="dropdown-item" href="#">La bibliothèque</a>
+          <a class="dropdown-item" href="{{ path('faqs') }}">La F.A.Q.</a>
+          <a class="dropdown-item" href="#">Créer un ticket de support</a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" href="#">La Dropbox BELAIR</a>
+        </div>
+      </li>
+      {% endif %}
+    </ul>
+
+    <ul class="navbar-nav ml-auto">
+      <li class="nav-item"><a class="nav-link" href="#">Nous contacter</a></li>
+      {% if app.user %}
+        <li class="nav-item">
+          <a class="nav-link" href="{{ path('admin_homepage') }}">Espace admin</a>
+        </li>
+        <li class="nav-item dropdown">
+          <a href="#"
+            class="nav-link dropdown-toggle"
+            data-toggle="dropdown"
+            id="accountDropdownLink">
+            <img src="{{ app.user.picture }}"
+              alt=""
+              class="avatar avatar-mini mr-1" />{{ app.user.firstName }}
+            {{ app.user.lastName }}
+          </a>
+          <div class="dropdown-menu dropdown-menu-right"
+            aria-labelledby="accountDropdownLink">
+            <a href="{{ path('account_show') }}" class="dropdown-item">
+              <i class="fas fa-user mr-2"></i>Mon compte
+            </a>
+            <a href="{{ path('account_edit') }}" class="dropdown-item">
+              <i class="fas fa-user-edit mr-2"></i>Modifier mon profil
+            </a>
+            <a href="{{ path('account_password_update') }}" class="dropdown-item">
+             <i class="fas fa-user-cog mr-2"></i> Modifier mon mot de passe
+            </a>
+            <div class="dropdown-divider"></div>
+            <a href="{{ path('account_logout') }}" class="dropdown-item">
+              <i class="fas fa-sign-out-alt mr-2"></i> Se déconnecter
+            </a>
+          </div>
+        </li>
+      {% else %}
+        <li class="nav-item">
+          <a class="nav-link" href="{{ path('account_login') }}">
+            Se connecter
+          </a>
+        </li>
+      {% endif %}
+    </ul>
+
+  </div>
+
+</nav>
+
+{% for label, messages in app.flashes %}
+  <div class="container">
+    <div class="alert alert-{{ label }}">
+      {% for message in messages %}
+        <p>
+          {{ message|raw }}
+        </p>
+      {% endfor %}
+    </div>
+  </div>
+{% endfor %}

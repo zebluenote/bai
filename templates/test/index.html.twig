@@ -1,0 +1,22 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello TestController!{% endblock %}
+
+{% block body %}
+<div class="container">
+    <h1>Page de test</h1>
+    <h2>Hello {{ controller_name }}! ✅</h2>
+    <ul>
+        <li>Your controller at <code><a href="{{ 'C:/wamp64/www/bai-symfony-projects/internet-new/src/Controller/TestController.php'|file_link(0) }}">src/Controller/TestController.php</a></code></li>
+        <li>Your template at <code><a href="{{ 'C:/wamp64/www/bai-symfony-projects/internet-new/templates/test/index.html.twig'|file_link(0) }}">templates/test/index.html.twig</a></code></li>
+    </ul>
+</div>
+{% endblock %}
+
+{% block javascripts %}
+    <script>
+        $(function() {
+            alert( "ready!" );
+        });
+    </script>
+{% endblock %}

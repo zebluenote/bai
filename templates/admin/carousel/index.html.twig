@@ -1,0 +1,168 @@
+{% extends 'base.admin.html.twig' %}
+
+{% block title %}Admin Carousels
+{% endblock %}
+
+{% block body %}
+	<div class="container-fluid">
+		<h1>Liste des carousels</h1>
+
+    <div class="alert alert-info">
+      <div class="row align-items-center">
+        <div class="d-none d-sm-none d-md-block col-md-3 col-lg-2 col-xl-1"><span class="fas fa-info-circle fa-4x"></span></div>
+        <div class="col">
+          <h4>Gestion de l'ensemble des carousels du site institutionnel Belair</h4>
+          Le carousel [homepage] est celui qui est chargé sur la page d'accueil du site.
+          <br>
+          Le nom et la description ne sont jamais affichés. 
+          <ul>
+            <li>Le nom est celui qui sera utilisé dans le code lorsque l'on souhaitera l'afficher sur une page.</li>
+            <li>La description n'est utile qu'afin de fournir une aide à l'administration en rappelant l'utilité du carousel</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+		<div class="col my-2 clearfix">
+			<a id="addbutton" href="#" class="btn btn-success float-right">Ajouter une carousel</a>
+		</div>
+		<table class="table table-hover">
+			<thead>
+				<tr>
+					<th>Id</th>
+					<th>Slug</th>
+					<th>Nom</th>
+					<th>Description</th>
+					<th class="text-center">Img.</th>
+					<th class="text-center">Status</th>
+					<th></th>
+				</tr>
+			</thead>
+			<tbody>
+				{% for carousel in carousels %}
+					<tr>
+						<td>{{carousel.id}}</td>
+						<td>
+							<span class="badge badge-secondary">{{ carousel.slug }}</span>
+						</td>
+						<td>{{carousel.name}}</td>
+						<td>{{carousel.description}}</td>
+						<td class="text-center">{{carousel.carouselElements|length}}</td>
+						<td class="text-center">
+							<div class="custom-control custom-switch">
+								<input type="checkbox" class="custom-control-input" data-action="status-toggler" data-href="{{ path('admin_carousel_status_toggle', {'id': carousel.id}) }}" data-carouselid="{{carousel.id}}" data-status="{{carousel.status}}" id="customSwitch{{carousel.id}}" {% if carousel.status %} checked="checked" {% endif %}>
+								<label class="custom-control-label" id="customSwitchLabel{{carousel.id}}" for="customSwitch{{carousel.id}}">
+									{% if carousel.status %}
+										on
+									{% else %}
+										off
+									{% endif %}
+								</label>
+							</div>
+						</td>
+						<td>
+							<a href="{{ path('admin_carousel_show', {'id': carousel.id}) }}" class="btn btn-sm btn-info" carousel-name="{{ carousel.name }}" carousel-slug="{{ carousel.slug }}">
+								<span class="fas fa-eye"></span>
+							</a>
+							<a href="{{ path('admin_carousel_edit', {'id': carousel.id}) }}" class="btn btn-sm btn-primary" carousel-name="{{ carousel.name }}" carousel-slug="{{ carousel.slug }}">
+								<span class="fas fa-pen"></span>
+							</a>
+							<a href="{{ path('admin_carousel_delete', {'id': carousel.id}) }}" class="btn btn-sm btn-danger delete-carousel" carousel-name="{{ carousel.name }}" carousel-slug="{{ carousel.slug }}">
+								<span class="fas fa-trash"></span>
+							</a>
+						</td>
+					</tr>
+				{% endfor %}
+			</tbody>
+		</table>
+	</div>
+
+	<div id="delete-confirm" class="modal" data-backdrop="static" data-keyboard="false">
+		<div class="vertical-alignment-helper">
+			<div class="modal-dialog vertical-align-center">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h4 class="modal-title  text-center">Attention</h4>
+					</div>
+					<div class="modal-body">
+						<p class="text-center" id="form-confirm-text"></p>
+						<form id="form-delete" action="" method="get">
+
+							<div class="text-center">
+								<button type="submit" class=" btn btn-primary ">
+									Okay</button>
+								<button type="button" class=" btn btn-primary " data-dismiss="modal">
+									Annuler</button>
+							</div>
+						</form>
+
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+{% endblock %}
+{% block javascripts %}
+	<script src="/js/axios.min.js"></script>
+	<script src="/js/notify.min.js"></script>
+
+<script>
+		$('.delete-carousel').on('click', function (event) {
+      event.preventDefault();
+      const carouselName = $(this).attr('carousel-name');
+      const carouselSlug = $(this).attr('carousel-slug');
+      const target = $(this).attr('href');
+      $('#form-confirm-text').html('Veuillez confirmer la suppression du carousel<br><button type="button" class="btn btn-info my-2">' + carouselName + '</button><br>dont le slug est "' + carouselSlug + '"');
+      $('#form-delete').attr('action', target);
+      $('#delete-confirm').modal('show');
+    });
+
+    // On reçoit le status du carousel après mise à jour
+    // status = bool
+    function toggleCarouselStatus(label, element, status, isError){
+      if (status) {
+        element.attr('data-status', '1');
+        element.prop('checked', true);
+        element.attr('checked', 'checked');
+        if (isError) {
+          label.html('on <span class="fas fa-check" style="color:red;"></span>')
+        } else {
+          label.html('on <span class="fas fa-check" style="color:green;"></span>')
+        }
+      } else {
+        element.attr('data-status', '');
+        element.prop('checked', false);
+        element.attr('checked', null);
+        if (isError) {
+          label.html('off <span class="fas fa-check" style="color:red;"></span>')
+        } else {
+          label.html('off <span class="fas fa-check" style="color:green;"></span>')
+        }
+      }
+    }
+
+    $('[data-action="status-toggler"]').on('change', function (event) {
+      const carouselId = $(this).attr('data-carouselid');
+      const carouselStatus = $(this).attr('data-status');
+      const href = $(this).attr('data-href');
+      // const label = 'customSwitchLabel'+carouselId;
+
+      // TODO : appeler cette action en post uniquement => requirements dans le controller
+      axios.get(href).then(function (response) {
+      console.dir(response);
+      if (response.data.code == 200) {
+        // OK donc on peut appeler toggleCarouselStatus(label, element, status, isError)
+        toggleCarouselStatus($('#customSwitchLabel'+carouselId), $(this), response.data.data.newStatus, false);
+        $.notify($('#customSwitchLabel'+carouselId), response.data.message, { elementPosition: 'top center', autoHideDelay: 2000, style: 'bootstrap', className: 'success', arrowShow: true, arrowSize: 5 });
+      } else {
+        // KO donc on appelle keepCarouselStatus(label, element, status, isError)
+        toggleCarouselStatus($('#customSwitchLabel'+carouselId), $(this), response.data.data.newStatus, true);
+        $.notify($('#customSwitchLabel'+carouselId), response.data.message, { elementPosition: 'top center', autoHideDelay: 2000, style: 'bootstrap', className: 'error', arrowShow: true, arrowSize: 5 });
+      }
+    });
+
+    console.warn('after axios');
+
+    });
+	</script>
+{% endblock %}

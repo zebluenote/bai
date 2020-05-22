@@ -1,0 +1,54 @@
+TODO :
+======
+    Notifications : notify js, bootstrap toast
+    Annotation : @Route("/xxx", name="xxx", methods={"POST"}, options={"expose"=true})
+        voir l'option  expose !!!
+
+Démarrage de l'environnement de DEV
+==================================
+    symfony server:start --no-tls
+    npm run dev-server
+
+Variables globales de twig.yaml
+===============================
+globals:
+        carousels_images_url: '/images/carousels'
+
+Paramètres définis dans services.yaml
+=====================================
+parameters:
+    images_directory: '%kernel.project_dir%/public/images'
+    carousel_images_directory: '%kernel.project_dir%/public/images/carousels'
+
+Modification manuelle d'une Entity dans le fichier entity.php :
+===============================================================
+
+    After any changes in your entities you must generate new migration file. 
+    In fact this file contains all of the changes which must be done on your database to be update. 
+    To generate this file (new migration version) you can follow these commands:
+    $ php bin/console doctrine:cache:clear-metadata
+    $ php bin/console doctrine:migrations:diff
+
+    After above commands you generated your new version file successfully, now if you run following command, 
+    you can see you have a new and not executed version file:
+    $ php bin/console doctrine:migrations:status
+
+    Finally, to execute the new version file and update your database, you must run the following command:
+    $ php bin/console doctrine:migrations:migrate --all-or-nothing
+
+    Now your database is update and in the table migration_versions you can see that new version has been added.
+
+
+LES ENTITES :
+=============
+
+FaqCategory :
+    label
+    slug
+Faq :
+    num
+    title
+    content
+    category_id/relation
+    
+

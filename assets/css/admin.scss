@@ -1,0 +1,76 @@
+@import url('./bootstrap.admin.min.css');
+@import 'common';
+
+h1 {
+    padding-top: 10px; 
+    padding-bottom: 20px;
+}
+
+div.admin {
+    h2.h3 {
+        margin-bottom: 20px;
+    }
+}
+
+div.container, div.container-fluid {
+    margin-top: 10px;
+}
+
+.avatar {
+    max-width: 128px;
+    max-height: 128px;
+    border-radius: 50%;
+
+    &.avatar-medium {
+        max-width: 80px;
+        max-height: 80px;
+    }
+    
+    &.avatar-mini {
+        max-width: 32px;
+        max-height: 32px;
+    }
+    
+    &.avatar-micro {
+        max-width: 24px;
+        max-height: 24px;
+    }
+}
+
+.imagette {
+    max-width: 128px;
+    max-height: 128px;
+
+    &.imagette-medium {
+        max-width: 80px;
+        max-height: 80px;
+    }
+    
+    &.imagette-mini {
+        max-width: 32px;
+        max-height: 32px;
+    }
+    
+    &.imagette-micro {
+        max-width: 24px;
+        max-height: 24px;
+    }
+}
+
+.datepicker table tr td.disabled, .datepicker table tr td.disabled:hover {
+	color: firebrick !important;
+}
+
+span.rating i {
+    color: goldenrod;
+}
+
+.alert {
+    a {
+        text-decoration: none;
+    }
+
+    .btn {
+       color: white; 
+    }
+}

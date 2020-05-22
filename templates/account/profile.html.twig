@@ -1,0 +1,53 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+  Modification mot de passe
+{% endblock %}
+{% block body %}
+  <div class="container">
+    {% if user is same as (app.user) %}
+    <h1>
+      Votre profil utilisateur
+    </h1>
+
+    <div class="row mt-5 align-items-center">
+        <div class="col-3 text-center">
+            <img src="{{user.picture}}" class="avatar mb-2" alt="Avatar de {{user.firstName}} {{user.lastName}}">
+            <br>
+            <span class="badge badge-primary">{{user.slug}}</span>
+        </div>
+        <div class="col-9">
+          <h1>{{user.firstName}} {{user.lastName}}</h1>
+          <a href="{{ path('account_edit') }}" class="btn btn-outline-info">Modifier mon profil</a>
+          <a href="{{ path('account_password_update') }}" class="btn btn-outline-info">Modifier mon mot de passe</a>
+        </div>
+    </div>
+    <hr>
+    <div class="row">
+      <div class="col-md-6">
+        <h2>Informations générales</h2>
+        <dl class="row">
+            <dt class="col-sm-5 col-md-5 col-lg-3">Rôles</dt><dd class="col-sm-7 col-md-7 col-lg-9">
+            {% for role in user.roles %}
+                {{ role }}<br>
+            {% endfor %}
+            </dd>
+            <dt class="col-sm-5 col-md-5 col-lg-3">Adresse&nbsp;email</dt><dd class="col-sm-7 col-md-7 col-lg-9">{{user.email}}</dd>
+        </dl>
+      </div>
+      <div class="col-md-6">
+        <h2>Entreprise</h2>
+        <dl class="row">
+          <dt class="col-sm-5 col-md-5 col-lg-3">Raison&nbsp;sociale</dt><dd class="col-sm-7 col-md-7 col-lg-9">{{customer.name}}</dd>
+          <dt class="col-sm-5 col-md-5 col-lg-3">Dossier&nbsp;Belair&nbsp;n°</dt><dd class="col-sm-7 col-md-7 col-lg-9">{{customer.idBelair}}</dd>
+          <dt class="col-sm-5 col-md-5 col-lg-3">Adresse</dt><dd class="col-sm-7 col-md-7 col-lg-9">{{customer.zipCode}} {{customer.city}}</dd>
+        </dl>
+      </div>
+    </div>
+
+    {% else %}
+        <div class="alert alert-danger">Ceci est une anomalie. Vous ne devriez pas pouvoir atteindre cette page.</div>
+    {% endif %}
+
+  </div>
+{% endblock %}

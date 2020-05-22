@@ -1,0 +1,29 @@
+@import url('./bootswatch-cosmo-bootstrap.css');
+
+@import 'common';
+@import url('./specific.scss');
+
+
+
+div.container, div.container-fluid {
+    margin-top: 20px;
+}
+
+div.carousel-caption {
+    h1, h2, h3, h4, h5, p {
+    text-shadow: 3px 3px 3px rgba(0,0,0,0.5);
+    }
+    h1, h2, h3, h4, h5 {
+        font-weight: 600;
+    }
+}
+
+p.homepage {
+    font-size: 20px;
+    &.slogan {
+        color:#444;
+        &.slogan-1 {
+            font-style: italic;
+        }
+    }
+} 

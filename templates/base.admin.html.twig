@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8"/>
+		<title>BAI Admin -
+			{% block title %}{% endblock %}
+		</title>
+		<meta name="viewport" content="width=device-width, user-scalable=no"/>
+		{{ encore_entry_link_tags('css/admin') }}
+		<script src="https://kit.fontawesome.com/92d6f122cc.js" crossorigin="anonymous"></script>
+		{% block stylesheets %}{% endblock %}
+	</head>
+	<body>
+		{% include 'partials/header.admin.html.twig' %}
+		<div class="container-fluid">
+			<div class="row">
+				<div class="col-md-4 col-lg-3 col-xl-2">
+					{% include 'partials/leftmenu.admin.html.twig' %}
+				</div>
+				<div class="col-md-8 col-lg-9 col-xl-10">
+					{% for label, messages in app.flashes %}
+						<div class="container">
+							<div class="alert alert-{{ label }} clearfix">
+								{% for message in messages %}
+									<p>
+										{{ message|raw }}
+									</p>
+								{% endfor %}
+							</div>
+						</div>
+					{% endfor %}
+					{% block body %}{% endblock %}
+				</div>
+			</div>
+		</div>
+		{{ encore_entry_script_tags('js/admin') }}
+		{% block javascripts %}{% endblock %}
+	</body>
+</html>

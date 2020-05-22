@@ -1,0 +1,760 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+  Espace client - release note progiciel Belair
+{% endblock %}
+
+{% block body %}
+  <div class="container">
+    {% if app.user %}
+      <h1>
+        Les "release notes" Belair
+      </h1>
+
+      <div class="bg-light p-3">
+        <form class="form-inline" action="#" method="post">
+          <div class="form-group mx-sm-3 mb-2">
+            <label for="search" class="mr-3">
+              Recherche :
+            </label>
+            <input style="width: 250px;"
+              type="text"
+              class="form-control"
+              id="search"
+              placeholder="Rechercher dans les release notes..." />
+          </div>
+          <button type="submit"
+            class="btn btn-primary mb-2"
+            onClick="return false">
+            Rechercher
+          </button>
+        </form>
+      </div>
+
+      <ul class="nav nav-tabs" id="myTab" role="tablist">
+        <li class="nav-item" role="presentation">
+          <a class="nav-link"
+            id="TAB1-tab"
+            data-toggle="tab"
+            href="#TAB1"
+            role="tab"
+            aria-controls="TAB1"
+            aria-selected="true">
+            4.2A
+          </a>
+        </li>
+        <li class="nav-item" role="presentation">
+          <a class="nav-link"
+            id="TAB2-tab"
+            data-toggle="tab"
+            href="#TAB2"
+            role="tab"
+            aria-controls="TAB2"
+            aria-selected="false">
+            4.2B
+          </a>
+        </li>
+        <li class="nav-item" role="presentation">
+          <a class="nav-link"
+            id="TAB3-tab"
+            data-toggle="tab"
+            href="#TAB3"
+            role="tab"
+            aria-controls="TAB3"
+            aria-selected="false">
+            4.2C
+          </a>
+        </li>
+        <li class="nav-item" role="presentation">
+          <a class="nav-link active"
+            id="TAB4-tab"
+            data-toggle="tab"
+            href="#TAB4"
+            role="tab"
+            aria-controls="TAB4"
+            aria-selected="false">
+            4.2D
+          </a>
+        </li>
+      </ul>
+
+      <div class="tab-content">
+        <div class="tab-pane p-2"
+          id="TAB1"
+          role="tabpanel"
+          aria-labelledby="TAB1-tab">
+          <h5 class="mt-0 mb-3 p-2"><strong>Version 4.2A</strong></h5>
+          <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="#">Solution Belair</a></li>
+            <li class="breadcrumb-item active">Administration-paramétrage</li>
+          </ol>
+          <div class="row">
+            <div class="col-md-4">
+              <span class="fas fa-file mr-2"></span><em>
+                n° 17892 4.2D.22297 (26/02/2020)
+              </em>
+              <br />
+              <span class="badge badge-warning">Tiers : 1254</span>
+            </div>
+            <div class="col-md-8">
+              Sauvegarde base Firebird par Baisetup avec Gbak: test sur la
+              version de Firebird.
+              <br />
+              L'option de sauvegarde avec utilisation de Gbak n'est proposée que
+              si la version de Firebird du poste à partir duquel est effectuée la
+              sauvegarde est identique à la version Firebird du serveur hébergeant
+              la base Firebird
+            </div>
+          </div>
+          <hr />
+          <div class="row">
+            <div class="col-md-4">
+              <span class="fas fa-file mr-2"></span><em>
+                n° 17892 4.2D.22297 (26/02/2020)
+              </em>
+              <br />
+              <span class="badge badge-warning">Tiers : 1254</span>
+            </div>
+            <div class="col-md-8">
+              Sauvegarde base Firebird par Baisetup avec Gbak: test sur la
+              version de Firebird.
+              <br />
+              L'option de sauvegarde avec utilisation de Gbak n'est proposée que
+              si la version de Firebird du poste à partir duquel est effectuée la
+              sauvegarde est identique à la version Firebird du serveur hébergeant
+              la base Firebird
+            </div>
+          </div>
+          <hr />
+          <div class="row">
+            <div class="col-md-4">
+              <span class="fas fa-file mr-2"></span><em>
+                n° 17892 4.2D.22297 (26/02/2020)
+              </em>
+              <br />
+              <span class="badge badge-warning">Tiers : 1254</span>
+            </div>
+            <div class="col-md-8">
+              Sauvegarde base Firebird par Baisetup avec Gbak: test sur la
+              version de Firebird.
+              <br />
+              L'option de sauvegarde avec utilisation de Gbak n'est proposée que
+              si la version de Firebird du poste à partir duquel est effectuée la
+              sauvegarde est identique à la version Firebird du serveur hébergeant
+              la base Firebird
+            </div>
+          </div>
+          <hr />
+          <div class="row">
+            <div class="col-md-4">
+              <span class="fas fa-file mr-2"></span><em>
+                n° 17892 4.2D.22297 (26/02/2020)
+              </em>
+              <br />
+              <span class="badge badge-warning">Tiers : 1254</span>
+            </div>
+            <div class="col-md-8">
+              Sauvegarde base Firebird par Baisetup avec Gbak: test sur la
+              version de Firebird.
+              <br />
+              L'option de sauvegarde avec utilisation de Gbak n'est proposée que
+              si la version de Firebird du poste à partir duquel est effectuée la
+              sauvegarde est identique à la version Firebird du serveur hébergeant
+              la base Firebird
+            </div>
+          </div>
+          <hr />
+          <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="#">Solution Belair</a></li>
+            <li class="breadcrumb-item active">Application modèle (DEI)</li>
+          </ol>
+          <div class="row">
+            <div class="col-md-4">
+              <span class="fas fa-file mr-2"></span><em>
+                n° 17892 4.2D.22297 (26/02/2020)
+              </em>
+              <br />
+              <span class="badge badge-warning">Tiers : 1254</span>
+            </div>
+            <div class="col-md-8">
+              Sauvegarde base Firebird par Baisetup avec Gbak: test sur la
+              version de Firebird.
+              <br />
+              L'option de sauvegarde avec utilisation de Gbak n'est proposée que
+              si la version de Firebird du poste à partir duquel est effectuée la
+              sauvegarde est identique à la version Firebird du serveur hébergeant
+              la base Firebird
+            </div>
+          </div>
+          <hr />
+          <div class="row">
+            <div class="col-md-4">
+              <span class="fas fa-file mr-2"></span><em>
+                n° 17892 4.2D.22297 (26/02/2020)
+              </em>
+              <br />
+              <span class="badge badge-warning">Tiers : 1254</span>
+            </div>
+            <div class="col-md-8">
+              Sauvegarde base Firebird par Baisetup avec Gbak: test sur la
+              version de Firebird.
+              <br />
+              L'option de sauvegarde avec utilisation de Gbak n'est proposée que
+              si la version de Firebird du poste à partir duquel est effectuée la
+              sauvegarde est identique à la version Firebird du serveur hébergeant
+              la base Firebird
+            </div>
+          </div>
+          <hr />
+          <div class="row">
+            <div class="col-md-4">
+              <span class="fas fa-file mr-2"></span><em>
+                n° 17892 4.2D.22297 (26/02/2020)
+              </em>
+              <br />
+              <span class="badge badge-warning">Tiers : 1254</span>
+            </div>
+            <div class="col-md-8">
+              Sauvegarde base Firebird par Baisetup avec Gbak: test sur la
+              version de Firebird.
+              <br />
+              L'option de sauvegarde avec utilisation de Gbak n'est proposée que
+              si la version de Firebird du poste à partir duquel est effectuée la
+              sauvegarde est identique à la version Firebird du serveur hébergeant
+              la base Firebird
+            </div>
+          </div>
+          <hr />
+          <div class="row">
+            <div class="col-md-4">
+              <span class="fas fa-file mr-2"></span><em>
+                n° 17892 4.2D.22297 (26/02/2020)
+              </em>
+              <br />
+              <span class="badge badge-warning">Tiers : 1254</span>
+            </div>
+            <div class="col-md-8">
+              Sauvegarde base Firebird par Baisetup avec Gbak: test sur la
+              version de Firebird.
+              <br />
+              L'option de sauvegarde avec utilisation de Gbak n'est proposée que
+              si la version de Firebird du poste à partir duquel est effectuée la
+              sauvegarde est identique à la version Firebird du serveur hébergeant
+              la base Firebird
+            </div>
+          </div>
+          <hr />
+        </div>
+        <div class="tab-pane p-2"
+          id="TAB2"
+          role="tabpanel"
+          aria-labelledby="TAB2-tab">
+          <h5 class="mt-0 mb-3 p-2"><strong>Version 4.2B</strong></h5>
+          <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="#">Solution Belair</a></li>
+            <li class="breadcrumb-item active">Administration-paramétrage</li>
+          </ol>
+          <div class="row">
+            <div class="col-md-4">
+              <span class="fas fa-file mr-2"></span><em>
+                n° 17892 4.2D.22297 (26/02/2020)
+              </em>
+              <br />
+              <span class="badge badge-warning">Tiers : 1254</span>
+            </div>
+            <div class="col-md-8">
+              Sauvegarde base Firebird par Baisetup avec Gbak: test sur la
+              version de Firebird.
+              <br />
+              L'option de sauvegarde avec utilisation de Gbak n'est proposée que
+              si la version de Firebird du poste à partir duquel est effectuée la
+              sauvegarde est identique à la version Firebird du serveur hébergeant
+              la base Firebird
+            </div>
+          </div>
+          <hr />
+          <div class="row">
+            <div class="col-md-4">
+              <span class="fas fa-file mr-2"></span><em>
+                n° 17892 4.2D.22297 (26/02/2020)
+              </em>
+              <br />
+              <span class="badge badge-warning">Tiers : 1254</span>
+            </div>
+            <div class="col-md-8">
+              Sauvegarde base Firebird par Baisetup avec Gbak: test sur la
+              version de Firebird.
+              <br />
+              L'option de sauvegarde avec utilisation de Gbak n'est proposée que
+              si la version de Firebird du poste à partir duquel est effectuée la
+              sauvegarde est identique à la version Firebird du serveur hébergeant
+              la base Firebird
+            </div>
+          </div>
+          <hr />
+          <div class="row">
+            <div class="col-md-4">
+              <span class="fas fa-file mr-2"></span><em>
+                n° 17892 4.2D.22297 (26/02/2020)
+              </em>
+              <br />
+              <span class="badge badge-warning">Tiers : 1254</span>
+            </div>
+            <div class="col-md-8">
+              Sauvegarde base Firebird par Baisetup avec Gbak: test sur la
+              version de Firebird.
+              <br />
+              L'option de sauvegarde avec utilisation de Gbak n'est proposée que
+              si la version de Firebird du poste à partir duquel est effectuée la
+              sauvegarde est identique à la version Firebird du serveur hébergeant
+              la base Firebird
+            </div>
+          </div>
+          <hr />
+          <div class="row">
+            <div class="col-md-4">
+              <span class="fas fa-file mr-2"></span><em>
+                n° 17892 4.2D.22297 (26/02/2020)
+              </em>
+              <br />
+              <span class="badge badge-warning">Tiers : 1254</span>
+            </div>
+            <div class="col-md-8">
+              Sauvegarde base Firebird par Baisetup avec Gbak: test sur la
+              version de Firebird.
+              <br />
+              L'option de sauvegarde avec utilisation de Gbak n'est proposée que
+              si la version de Firebird du poste à partir duquel est effectuée la
+              sauvegarde est identique à la version Firebird du serveur hébergeant
+              la base Firebird
+            </div>
+          </div>
+          <hr />
+          <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="#">Solution Belair</a></li>
+            <li class="breadcrumb-item active">Application modèle (DEI)</li>
+          </ol>
+          <div class="row">
+            <div class="col-md-4">
+              <span class="fas fa-file mr-2"></span><em>
+                n° 17892 4.2D.22297 (26/02/2020)
+              </em>
+              <br />
+              <span class="badge badge-warning">Tiers : 1254</span>
+            </div>
+            <div class="col-md-8">
+              Sauvegarde base Firebird par Baisetup avec Gbak: test sur la
+              version de Firebird.
+              <br />
+              L'option de sauvegarde avec utilisation de Gbak n'est proposée que
+              si la version de Firebird du poste à partir duquel est effectuée la
+              sauvegarde est identique à la version Firebird du serveur hébergeant
+              la base Firebird
+            </div>
+          </div>
+          <hr />
+          <div class="row">
+            <div class="col-md-4">
+              <span class="fas fa-file mr-2"></span><em>
+                n° 17892 4.2D.22297 (26/02/2020)
+              </em>
+              <br />
+              <span class="badge badge-warning">Tiers : 1254</span>
+            </div>
+            <div class="col-md-8">
+              Sauvegarde base Firebird par Baisetup avec Gbak: test sur la
+              version de Firebird.
+              <br />
+              L'option de sauvegarde avec utilisation de Gbak n'est proposée que
+              si la version de Firebird du poste à partir duquel est effectuée la
+              sauvegarde est identique à la version Firebird du serveur hébergeant
+              la base Firebird
+            </div>
+          </div>
+          <hr />
+          <div class="row">
+            <div class="col-md-4">
+              <span class="fas fa-file mr-2"></span><em>
+                n° 17892 4.2D.22297 (26/02/2020)
+              </em>
+              <br />
+              <span class="badge badge-warning">Tiers : 1254</span>
+            </div>
+            <div class="col-md-8">
+              Sauvegarde base Firebird par Baisetup avec Gbak: test sur la
+              version de Firebird.
+              <br />
+              L'option de sauvegarde avec utilisation de Gbak n'est proposée que
+              si la version de Firebird du poste à partir duquel est effectuée la
+              sauvegarde est identique à la version Firebird du serveur hébergeant
+              la base Firebird
+            </div>
+          </div>
+          <hr />
+          <div class="row">
+            <div class="col-md-4">
+              <span class="fas fa-file mr-2"></span><em>
+                n° 17892 4.2D.22297 (26/02/2020)
+              </em>
+              <br />
+              <span class="badge badge-warning">Tiers : 1254</span>
+            </div>
+            <div class="col-md-8">
+              Sauvegarde base Firebird par Baisetup avec Gbak: test sur la
+              version de Firebird.
+              <br />
+              L'option de sauvegarde avec utilisation de Gbak n'est proposée que
+              si la version de Firebird du poste à partir duquel est effectuée la
+              sauvegarde est identique à la version Firebird du serveur hébergeant
+              la base Firebird
+            </div>
+          </div>
+          <hr />
+        </div>
+        <div class="tab-pane p-2"
+          id="TAB3"
+          role="tabpanel"
+          aria-labelledby="TAB3-tab">
+          <h5 class="mt-0 mb-3 p-2"><strong>Version 4.2C</strong></h5>
+          <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="#">Solution Belair</a></li>
+            <li class="breadcrumb-item active">Administration-paramétrage</li>
+          </ol>
+          <div class="row">
+            <div class="col-md-4">
+              <span class="fas fa-file mr-2"></span><em>
+                n° 17892 4.2D.22297 (26/02/2020)
+              </em>
+              <br />
+              <span class="badge badge-warning">Tiers : 1254</span>
+            </div>
+            <div class="col-md-8">
+              Sauvegarde base Firebird par Baisetup avec Gbak: test sur la
+              version de Firebird.
+              <br />
+              L'option de sauvegarde avec utilisation de Gbak n'est proposée que
+              si la version de Firebird du poste à partir duquel est effectuée la
+              sauvegarde est identique à la version Firebird du serveur hébergeant
+              la base Firebird
+            </div>
+          </div>
+          <hr />
+          <div class="row">
+            <div class="col-md-4">
+              <span class="fas fa-file mr-2"></span><em>
+                n° 17892 4.2D.22297 (26/02/2020)
+              </em>
+              <br />
+              <span class="badge badge-warning">Tiers : 1254</span>
+            </div>
+            <div class="col-md-8">
+              Sauvegarde base Firebird par Baisetup avec Gbak: test sur la
+              version de Firebird.
+              <br />
+              L'option de sauvegarde avec utilisation de Gbak n'est proposée que
+              si la version de Firebird du poste à partir duquel est effectuée la
+              sauvegarde est identique à la version Firebird du serveur hébergeant
+              la base Firebird
+            </div>
+          </div>
+          <hr />
+          <div class="row">
+            <div class="col-md-4">
+              <span class="fas fa-file mr-2"></span><em>
+                n° 17892 4.2D.22297 (26/02/2020)
+              </em>
+              <br />
+              <span class="badge badge-warning">Tiers : 1254</span>
+            </div>
+            <div class="col-md-8">
+              Sauvegarde base Firebird par Baisetup avec Gbak: test sur la
+              version de Firebird.
+              <br />
+              L'option de sauvegarde avec utilisation de Gbak n'est proposée que
+              si la version de Firebird du poste à partir duquel est effectuée la
+              sauvegarde est identique à la version Firebird du serveur hébergeant
+              la base Firebird
+            </div>
+          </div>
+          <hr />
+          <div class="row">
+            <div class="col-md-4">
+              <span class="fas fa-file mr-2"></span><em>
+                n° 17892 4.2D.22297 (26/02/2020)
+              </em>
+              <br />
+              <span class="badge badge-warning">Tiers : 1254</span>
+            </div>
+            <div class="col-md-8">
+              Sauvegarde base Firebird par Baisetup avec Gbak: test sur la
+              version de Firebird.
+              <br />
+              L'option de sauvegarde avec utilisation de Gbak n'est proposée que
+              si la version de Firebird du poste à partir duquel est effectuée la
+              sauvegarde est identique à la version Firebird du serveur hébergeant
+              la base Firebird
+            </div>
+          </div>
+          <hr />
+          <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="#">Solution Belair</a></li>
+            <li class="breadcrumb-item active">Application modèle (DEI)</li>
+          </ol>
+          <div class="row">
+            <div class="col-md-4">
+              <span class="fas fa-file mr-2"></span><em>
+                n° 17892 4.2D.22297 (26/02/2020)
+              </em>
+              <br />
+              <span class="badge badge-warning">Tiers : 1254</span>
+            </div>
+            <div class="col-md-8">
+              Sauvegarde base Firebird par Baisetup avec Gbak: test sur la
+              version de Firebird.
+              <br />
+              L'option de sauvegarde avec utilisation de Gbak n'est proposée que
+              si la version de Firebird du poste à partir duquel est effectuée la
+              sauvegarde est identique à la version Firebird du serveur hébergeant
+              la base Firebird
+            </div>
+          </div>
+          <hr />
+          <div class="row">
+            <div class="col-md-4">
+              <span class="fas fa-file mr-2"></span><em>
+                n° 17892 4.2D.22297 (26/02/2020)
+              </em>
+              <br />
+              <span class="badge badge-warning">Tiers : 1254</span>
+            </div>
+            <div class="col-md-8">
+              Sauvegarde base Firebird par Baisetup avec Gbak: test sur la
+              version de Firebird.
+              <br />
+              L'option de sauvegarde avec utilisation de Gbak n'est proposée que
+              si la version de Firebird du poste à partir duquel est effectuée la
+              sauvegarde est identique à la version Firebird du serveur hébergeant
+              la base Firebird
+            </div>
+          </div>
+          <hr />
+          <div class="row">
+            <div class="col-md-4">
+              <span class="fas fa-file mr-2"></span><em>
+                n° 17892 4.2D.22297 (26/02/2020)
+              </em>
+              <br />
+              <span class="badge badge-warning">Tiers : 1254</span>
+            </div>
+            <div class="col-md-8">
+              Sauvegarde base Firebird par Baisetup avec Gbak: test sur la
+              version de Firebird.
+              <br />
+              L'option de sauvegarde avec utilisation de Gbak n'est proposée que
+              si la version de Firebird du poste à partir duquel est effectuée la
+              sauvegarde est identique à la version Firebird du serveur hébergeant
+              la base Firebird
+            </div>
+          </div>
+          <hr />
+          <div class="row">
+            <div class="col-md-4">
+              <span class="fas fa-file mr-2"></span><em>
+                n° 17892 4.2D.22297 (26/02/2020)
+              </em>
+              <br />
+              <span class="badge badge-warning">Tiers : 1254</span>
+            </div>
+            <div class="col-md-8">
+              Sauvegarde base Firebird par Baisetup avec Gbak: test sur la
+              version de Firebird.
+              <br />
+              L'option de sauvegarde avec utilisation de Gbak n'est proposée que
+              si la version de Firebird du poste à partir duquel est effectuée la
+              sauvegarde est identique à la version Firebird du serveur hébergeant
+              la base Firebird
+            </div>
+          </div>
+          <hr />
+        </div>
+        <div class="tab-pane p-2 active"
+          id="TAB4"
+          role="tabpanel"
+          aria-labelledby="TAB4-tab">
+          <h5 class="mt-0 mb-3 p-2"><strong>Version 4.2D</strong></h5>
+          <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="#">Solution Belair</a></li>
+            <li class="breadcrumb-item active">Administration-paramétrage</li>
+          </ol>
+          <div class="row">
+            <div class="col-md-4">
+              <span class="fas fa-file mr-2"></span><em>
+                n° 17892 4.2D.22297 (26/02/2020)
+              </em>
+              <br />
+              <span class="badge badge-warning">Tiers : 1254</span>
+            </div>
+            <div class="col-md-8">
+              Sauvegarde base Firebird par Baisetup avec Gbak: test sur la
+              version de Firebird.
+              <br />
+              L'option de sauvegarde avec utilisation de Gbak n'est proposée que
+              si la version de Firebird du poste à partir duquel est effectuée la
+              sauvegarde est identique à la version Firebird du serveur hébergeant
+              la base Firebird
+            </div>
+          </div>
+          <hr />
+          <div class="row">
+            <div class="col-md-4">
+              <span class="fas fa-file mr-2"></span><em>
+                n° 17892 4.2D.22297 (26/02/2020)
+              </em>
+              <br />
+              <span class="badge badge-warning">Tiers : 1254</span>
+            </div>
+            <div class="col-md-8">
+              Sauvegarde base Firebird par Baisetup avec Gbak: test sur la
+              version de Firebird.
+              <br />
+              L'option de sauvegarde avec utilisation de Gbak n'est proposée que
+              si la version de Firebird du poste à partir duquel est effectuée la
+              sauvegarde est identique à la version Firebird du serveur hébergeant
+              la base Firebird
+            </div>
+          </div>
+          <hr />
+          <div class="row">
+            <div class="col-md-4">
+              <span class="fas fa-file mr-2"></span><em>
+                n° 17892 4.2D.22297 (26/02/2020)
+              </em>
+              <br />
+              <span class="badge badge-warning">Tiers : 1254</span>
+            </div>
+            <div class="col-md-8">
+              Sauvegarde base Firebird par Baisetup avec Gbak: test sur la
+              version de Firebird.
+              <br />
+              L'option de sauvegarde avec utilisation de Gbak n'est proposée que
+              si la version de Firebird du poste à partir duquel est effectuée la
+              sauvegarde est identique à la version Firebird du serveur hébergeant
+              la base Firebird
+            </div>
+          </div>
+          <hr />
+          <div class="row">
+            <div class="col-md-4">
+              <span class="fas fa-file mr-2"></span><em>
+                n° 17892 4.2D.22297 (26/02/2020)
+              </em>
+              <br />
+              <span class="badge badge-warning">Tiers : 1254</span>
+            </div>
+            <div class="col-md-8">
+              Sauvegarde base Firebird par Baisetup avec Gbak: test sur la
+              version de Firebird.
+              <br />
+              L'option de sauvegarde avec utilisation de Gbak n'est proposée que
+              si la version de Firebird du poste à partir duquel est effectuée la
+              sauvegarde est identique à la version Firebird du serveur hébergeant
+              la base Firebird
+            </div>
+          </div>
+          <hr />
+          <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="#">Solution Belair</a></li>
+            <li class="breadcrumb-item active">Application modèle (DEI)</li>
+          </ol>
+          <div class="row">
+            <div class="col-md-4">
+              <span class="fas fa-file mr-2"></span><em>
+                n° 17892 4.2D.22297 (26/02/2020)
+              </em>
+              <br />
+              <span class="badge badge-warning">Tiers : 1254</span>
+            </div>
+            <div class="col-md-8">
+              Sauvegarde base Firebird par Baisetup avec Gbak: test sur la
+              version de Firebird.
+              <br />
+              L'option de sauvegarde avec utilisation de Gbak n'est proposée que
+              si la version de Firebird du poste à partir duquel est effectuée la
+              sauvegarde est identique à la version Firebird du serveur hébergeant
+              la base Firebird
+            </div>
+          </div>
+          <hr />
+          <div class="row">
+            <div class="col-md-4">
+              <span class="fas fa-file mr-2"></span><em>
+                n° 17892 4.2D.22297 (26/02/2020)
+              </em>
+              <br />
+              <span class="badge badge-warning">Tiers : 1254</span>
+            </div>
+            <div class="col-md-8">
+              Sauvegarde base Firebird par Baisetup avec Gbak: test sur la
+              version de Firebird.
+              <br />
+              L'option de sauvegarde avec utilisation de Gbak n'est proposée que
+              si la version de Firebird du poste à partir duquel est effectuée la
+              sauvegarde est identique à la version Firebird du serveur hébergeant
+              la base Firebird
+            </div>
+          </div>
+          <hr />
+          <div class="row">
+            <div class="col-md-4">
+              <span class="fas fa-file mr-2"></span><em>
+                n° 17892 4.2D.22297 (26/02/2020)
+              </em>
+              <br />
+              <span class="badge badge-warning">Tiers : 1254</span>
+            </div>
+            <div class="col-md-8">
+              Sauvegarde base Firebird par Baisetup avec Gbak: test sur la
+              version de Firebird.
+              <br />
+              L'option de sauvegarde avec utilisation de Gbak n'est proposée que
+              si la version de Firebird du poste à partir duquel est effectuée la
+              sauvegarde est identique à la version Firebird du serveur hébergeant
+              la base Firebird
+            </div>
+          </div>
+          <hr />
+          <div class="row">
+            <div class="col-md-4">
+              <span class="fas fa-file mr-2"></span><em>
+                n° 17892 4.2D.22297 (26/02/2020)
+              </em>
+              <br />
+              <span class="badge badge-warning">Tiers : 1254</span>
+            </div>
+            <div class="col-md-8">
+              Sauvegarde base Firebird par Baisetup avec Gbak: test sur la
+              version de Firebird.
+              <br />
+              L'option de sauvegarde avec utilisation de Gbak n'est proposée que
+              si la version de Firebird du poste à partir duquel est effectuée la
+              sauvegarde est identique à la version Firebird du serveur hébergeant
+              la base Firebird
+            </div>
+          </div>
+          <hr />
+        </div>
+      </div>
+    {% else %}
+      <div class="alert alert-danger">
+        Ceci est une anomalie. Vous ne devriez pas pouvoir atteindre cette page.
+      </div>
+    {% endif %}
+  </div>
+{% endblock %}
+
+{% block javascripts %}
+  <script>
+    $('#myTab a').on('click', function (e) { e.preventDefault()
+    $(this).tab('show') })
+  </script>
+{% endblock %}

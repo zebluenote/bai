@@ -1,0 +1,21 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+  Modification du profil utilisateur
+{% endblock %}
+
+{% block body %}
+  <div class="container">
+    {% if app.user %}
+        <h1>
+        Modification du profil utilisateur <img src="{{ app.user.picture }}" alt="" class="avatar avatar-medium">
+        </h1>
+        {{ form_start(form) }}
+        {{ form_widget(form) }}
+        <button type="submit" class="btn btn-primary">Enregistrer</button>
+        {{ form_end(form) }}
+    {% else %}
+        <div class="alert alert-danger">Ceci est une anomalie. Vous ne devriez pas pouvoir atteindre cette page.</div>
+    {% endif %}
+  </div>
+{% endblock %}

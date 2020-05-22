@@ -1,0 +1,109 @@
+{% extends 'base.admin.html.twig' %}
+
+{% block title %}
+  Edition Carousel {{ carousel.slug }}
+{% endblock %}
+
+{% form_theme form _self %}
+
+{% block body %}
+  <div class="container">
+    <h1>
+      Edition Carousel "{{ carousel.name }}"
+    </h1>
+
+     {{ form_start(form) }}
+
+      <div class="form-group">
+        {{ form_label(form.name) }}
+        {{ form_widget(form.name, {'attr': {'class': 'form-control', 'placeholder': 'Le nom de ce carousel...'}}) }}
+      </div>
+
+      <div class="form-group">
+        {{ form_row(form.description) }}
+      </div>
+
+      <div class="form-group">
+        {{ form_row(form.status) }}
+      </div>
+
+      {{ form_widget(form.carouselElements) }}
+ 
+    <div class="alert alert-success clearfix">
+        <p>Vous êtes sur le point d'enregistrer les modifications de ce carousel.</p>
+        <a href="{{ path('admin_carousel_index') }}" class="btn btn-secondary float-left">
+            <i class="fas fa-window-close"></i> Annuler
+        </a>
+        <button type="submit" class="btn btn-primary float-right">
+            <i class="fas fa-check"></i> Enregistrer
+        </button>
+    </div>
+
+    {{ form_end(form) }}
+
+  </div>
+{% endblock %}
+
+{% block _carousel_carouselElements_widget %}
+  <h4>Ajoutez vos images à ce carousel</h4>
+  {{ form_widget(form) }}
+  <div class="form-group">
+    <button type="button" id="add-image" class="btn btn-primary">Ajouter une image</button>
+  </div>
+{% endblock %}
+
+{% block _carousel_carouselElements_entry_row %}
+  {{ form_widget(form) }}
+{% endblock %}
+
+{% block _carousel_carouselElements_entry_widget %}
+
+  <div class="form-group" id="block_{{id}}">
+    <div class="row">
+      <div class="col-10">
+        <div class="row">
+          <div class="col">
+            {{ form_widget(form.title) }}
+          </div>
+          <div class="col">
+            {{ form_widget(form.description) }}
+          </div>
+          <div class="col">
+            {{ form_widget(form.image) }}
+          </div>
+        </div>
+      </div>
+      <div class="col-2">
+        <button type="button" data-action="delete" data-target="#block_{{id}}" class="btn btn-danger"><span class="fas fa-trash"></span></button>
+      </div>
+    </div>
+  </div>
+
+{% endblock %}
+
+{% block javascripts %}
+
+  <script>
+    $('#add-image').on('click', function(event) {
+      event.preventDefault();
+      // Nb d'images déjà existantes dans le carousel
+      const nb = $('#carousel_carouselElements div.form-group').length;
+      // Récupération du prototype
+      const tmpl = $('#carousel_carouselElements').data('prototype').replace(/__name__/g, nb);
+      // Injection de la nouvelle ligne
+      $('#carousel_carouselElements').append(tmpl);
+      handleDeleteButtons();
+    })
+
+    function handleDeleteButtons(){
+      $('button[data-action="delete"]').on('click', function(){
+        const target= this.dataset.target;
+        $(target).remove();
+      })
+    }
+
+    handleDeleteButtons();
+
+  </script>
+
+{% endblock %}

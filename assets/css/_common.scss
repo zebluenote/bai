@@ -1,0 +1,51 @@
+.logo-sm {
+    width:85px; 
+    height: 100%;
+}
+
+a:hover {
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: none;
+}
+
+.avatar {
+    max-width: 128px;
+    max-height: 128px;
+    border-radius: 50%;
+
+    &.avatar-medium {
+        max-width: 80px;
+        max-height: 80px;
+    }
+    
+    &.avatar-mini {
+        max-width: 32px;
+        max-height: 32px;
+    }
+    
+    &.avatar-micro {
+        max-width: 24px;
+        max-height: 24px;
+    }
+}
+
+.datepicker table tr td.disabled, .datepicker table tr td.disabled:hover {
+	color: firebrick !important;
+}
+
+span.rating i {
+    color: goldenrod;
+}
+
+.alert {
+    a {
+        text-decoration: none;
+    }
+
+    .btn {
+       color: white; 
+    }
+}

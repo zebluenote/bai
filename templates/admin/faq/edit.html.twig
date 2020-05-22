@@ -1,0 +1,72 @@
+{% extends 'base.admin.html.twig' %}
+
+{% block title %}Admin FAQ Edition{% endblock %}
+
+{% block body %}
+	<div class="container-fluid">
+
+		<h1>Modification FAQ #{{faq.id}} - réf. Belair {{faq.num}}</h1>
+
+        <div class="alert alert-warning">
+           <span class="fas fa-exclamation-triangle fa-2x mr-2"></span> ATTENTION : veuillez adapter le format par rapport au contenu que vous avez saisi !
+        </div>
+
+        {{ form_start(form) }}
+            
+            <div class="row align-items-center">
+                <div class="col-md-2">
+                    {{ form_row(form.num) }}
+                </div>
+                <div class="col">
+                    {{ form_row(form.title) }}
+                </div>
+            </div>
+            
+            {{ form_row(form.content) }}
+
+            <div class="row align-items-center">
+                <div class="col-md-3">
+                    {{ form_label(form.format) }}
+                    {{ form_widget(form.format) }}
+                </div>
+                <div class="col-md-3">
+                    {{ form_label(form.contentFormat) }}
+                    {{ form_widget(form.contentFormat) }}
+                </div>
+                <div class="col-md-6">
+                    {{ form_row(form.category) }}
+                </div>
+            </div>
+
+            <div class="col clearfix">
+                <a href="{{ path('admin_faqs_index') }}" class="btn btn-secondary float-right"><span class="fas fa-recycle mr-2"></span>Annuler</a>
+                <button type="submit" class="btn btn-primary float-right"> <span class="fas fa-sign-in-alt mr-2"></span>Enregistrer les modifications</button>
+            </div>
+
+        {{ form_end(form) }}
+
+	</div>
+
+{% endblock %}
+
+{% block javascripts %}
+    
+    <script>
+        $( document ).ready(function(){
+
+            const initValue = $('#faq_format').val();
+            console.warn(initValue);
+
+            $('.form-check-input[value="'+initValue+'"]').prop('checked', true);
+
+            $('.form-check-input').on('click', function(){
+                const value = $(this).val();
+                console.warn(value);
+                $('#faq_format').val(value);
+            });
+
+        });
+
+    </script>
+
+{% endblock %}

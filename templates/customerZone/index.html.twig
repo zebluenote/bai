@@ -1,0 +1,351 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+  Espace client - accueil
+{% endblock %}
+
+{% block body %}
+  <div class="container">
+    {% if app.user %}
+      <h1>
+        Votre espace client - accueil
+      </h1>
+
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item active">
+          <a href="{{ path('espaceclient_accueil') }}">Accueil</a>
+        </li>
+      </ol>
+
+      <div class="row mt-4">
+        <div class="col">
+          Votre espace personnalisé vous permet d'accéder à de nombreux fichiers
+          que nous mettons à votre disposition en téléchargement.
+          <br />
+          Vous y trouverez des procédures comptables, des requêtes, des lettres,
+          des scripts et des formules de calcul créés par nos services.
+          <br />
+          Accédez à notre librairie via le menu principal, rubrique Espace Client
+          et section La Bibliothèque.
+          <br />
+          Nous y mettons aussi à votre disposition les informations sur les dernières
+          mises à jour de notre logiciel, ainsi qu'une documentation en ligne. Accédez
+          au mises à jour (correctifs, évolutions).
+        </div>
+      </div>
+
+      <div class="row mt-4">
+        <div class="col-lg-4">
+          <div class="card text-white bg-danger mb-3" style="max-width: 20rem;">
+            <div class="card-header">
+              <span class="fas fa-exclamation-triangle mr-2"></span>IMPORTANT
+            </div>
+            <div class="card-body bg-light text-dark">
+              <h4 class="card-title">
+                Montée de version<br />de 3.X vers 4.X
+              </h4>
+              <p class="card-text">
+                Le passage en version 4.X nécessite d'avoir préalablement
+                déployé la version 3.8O puis d'avoir effectué l'opération de
+                vérification de passage en version 4 via l'utilitaire
+                "Outils/Base de données/Vérifier la compatibilité avec BELAIR
+                4".
+                <br />
+                Dans le cas contraire, veuillez prendre contact avec notre support.
+              </p>
+            </div>
+          </div>
+          <div class="card text-white bg-warning mb-3"
+            style="max-width: 20rem;">
+            <div class="card-header">
+              <span class="fas fa-info mr-2"></span>ATTENTION
+            </div>
+            <div class="card-body bg-light text-dark">
+              <h4 class="card-title">
+                Vous avez un Extranet ?
+              </h4>
+              <p class="card-text">
+                Si vous exploitez un extranet avec BELAIR, veuillez
+                impérativement nous contacter avant de faire une mise à jour de
+                version.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-4">
+          <div class="bs-component">
+            <div class="card mb-3">
+              <h3 class="card-header text-white bg-primary">
+                BELAIR 4
+              </h3>
+              <div class="card-body">
+                <h5 class="card-title">
+                  Version 4.2D.22629
+                </h5>
+                <h6 class="card-subtitle text-muted">
+                  Publiée le 26/02/2020
+                </h6>
+              </div>
+              <img style="height: auto; width: 100%; display: block;"
+                src="/images/progiciel/belair_nouvelle_version_4_blue.jpg"
+                alt="Dernière version du progiciel BELAIR" />
+              <div class="card-body">
+                <p class="card-text">
+                  Dernière version du progiciel BELAIR 4 à utiliser en
+                  production.
+                  <br />
+                  La version 4.2D apporte un certain nombre d'améliorations et nouveautés
+                  que nous vous invitons à découvrir sur la page "Mises à jour Belair"
+                </p>
+              </div>
+              <div class="card-body">
+                <a href="#" class="card-link">Plus d'info...</a>
+                <a href="#" class="card-link">Téléchargement</a>
+              </div>
+              <div class="card-footer text-muted">
+                Il y a 2 jours
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-4">
+          <div class="card bg-light mb-3" style="max-width: 20rem;">
+            <div class="card-header">
+              <span class="fas fa-history mr-2"></span>DERNIÈRES MISES À JOUR
+            </div>
+            <div class="card-body">
+              <h4 class="card-title">
+                Ces mises à jour vous concernent
+              </h4>
+              <p class="card-text">
+                <strong>M.à.j n° 376 du 23/07/2019</strong>
+                <br />
+                Exemples de scripts php pour la connexion aux services de Bas (Belair
+                Application Server)
+              </p>
+              <p class="card-text">
+                <strong>M.à.j n° 376 du 23/07/2019</strong>
+                <br />
+                Exemples de scripts php pour la connexion aux services de Bas (Belair
+                Application Server)
+              </p>
+              <p class="card-text">
+                <strong>M.à.j n° 376 du 23/07/2019</strong>
+                <br />
+                Exemples de scripts php pour la connexion aux services de Bas (Belair
+                Application Server)
+              </p>
+              <p class="card-text">
+                <strong>M.à.j n° 376 du 23/07/2019</strong>
+                <br />
+                Exemples de scripts php pour la connexion aux services de Bas (Belair
+                Application Server)
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <hr />
+      <div class="row mt-4">
+        <div class="col">
+          <h2 class="h3 mb-3">
+            <span class="far fa-sticky-note mr-2"></span>Les 10 dernières FAQ
+            publiées
+          </h2>
+          <p class="bg-light p-3 clearfix">
+            <span class="far fa-check-square"></span>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere
+            erat a ante.
+            <br />
+            <span class="float-right small">
+              <em>n° 3059 du 12/02/2020</em>
+            </span>
+          </p>
+          <p class="bg-light p-3 clearfix">
+            <span class="far fa-check-square"></span>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere
+            erat a ante.
+            <br />
+            <span class="float-right small">
+              <em>n° 3059 du 12/02/2020</em>
+            </span>
+          </p>
+          <p class="bg-light p-3 clearfix">
+            <span class="far fa-check-square"></span>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere
+            erat a ante.
+            <br />
+            <span class="float-right small">
+              <em>n° 3059 du 12/02/2020</em>
+            </span>
+          </p>
+          <p class="bg-light p-3 clearfix">
+            <span class="far fa-check-square"></span>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere
+            erat a ante.
+            <br />
+            <span class="float-right small">
+              <em>n° 3059 du 12/02/2020</em>
+            </span>
+          </p>
+          <p class="bg-light p-3 clearfix">
+            <span class="far fa-check-square"></span>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere
+            erat a ante.
+            <br />
+            <span class="float-right small">
+              <em>n° 3059 du 12/02/2020</em>
+            </span>
+          </p>
+          <p class="bg-light p-3 clearfix">
+            <span class="far fa-check-square"></span>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere
+            erat a ante.
+            <br />
+            <span class="float-right small">
+              <em>n° 3059 du 12/02/2020</em>
+            </span>
+          </p>
+          <p class="bg-light p-3 clearfix">
+            <span class="far fa-check-square"></span>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere
+            erat a ante.
+            <br />
+            <span class="float-right small">
+              <em>n° 3059 du 12/02/2020</em>
+            </span>
+          </p>
+          <p class="bg-light p-3 clearfix">
+            <span class="far fa-check-square"></span>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere
+            erat a ante.
+            <br />
+            <span class="float-right small">
+              <em>n° 3059 du 12/02/2020</em>
+            </span>
+          </p>
+          <p class="bg-light p-3 clearfix">
+            <span class="far fa-check-square"></span>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere
+            erat a ante.
+            <br />
+            <span class="float-right small">
+              <em>n° 3059 du 12/02/2020</em>
+            </span>
+          </p>
+          <p class="bg-light p-3 clearfix">
+            <span class="far fa-check-square"></span>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere
+            erat a ante.
+            <br />
+            <span class="float-right small">
+              <em>n° 3059 du 12/02/2020</em>
+            </span>
+          </p>
+        </div>
+        <div class="col">
+          <h2 class="h3 mb-3">
+            <span class="fas fa-sync mr-2"></span>Les 10 dernières mises à jour
+            publiées
+          </h2>
+          <p class="bg-light p-3 clearfix">
+            <span class="far fa-check-square"></span>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere
+            erat a ante.
+            <br />
+            <span class="float-right small">
+              <em>n° 3059 du 12/02/2020</em>
+            </span>
+          </p>
+          <p class="bg-light p-3 clearfix">
+            <span class="far fa-check-square"></span>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere
+            erat a ante.
+            <br />
+            <span class="float-right small">
+              <em>n° 3059 du 12/02/2020</em>
+            </span>
+          </p>
+          <p class="bg-light p-3 clearfix">
+            <span class="far fa-check-square"></span>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere
+            erat a ante.
+            <br />
+            <span class="float-right small">
+              <em>n° 3059 du 12/02/2020</em>
+            </span>
+          </p>
+          <p class="bg-light p-3 clearfix">
+            <span class="far fa-check-square"></span>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere
+            erat a ante.
+            <br />
+            <span class="float-right small">
+              <em>n° 3059 du 12/02/2020</em>
+            </span>
+          </p>
+          <p class="bg-light p-3 clearfix">
+            <span class="far fa-check-square"></span>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere
+            erat a ante.
+            <br />
+            <span class="float-right small">
+              <em>n° 3059 du 12/02/2020</em>
+            </span>
+          </p>
+          <p class="bg-light p-3 clearfix">
+            <span class="far fa-check-square"></span>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere
+            erat a ante.
+            <br />
+            <span class="float-right small">
+              <em>n° 3059 du 12/02/2020</em>
+            </span>
+          </p>
+          <p class="bg-light p-3 clearfix">
+            <span class="far fa-check-square"></span>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere
+            erat a ante.
+            <br />
+            <span class="float-right small">
+              <em>n° 3059 du 12/02/2020</em>
+            </span>
+          </p>
+          <p class="bg-light p-3 clearfix">
+            <span class="far fa-check-square"></span>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere
+            erat a ante.
+            <br />
+            <span class="float-right small">
+              <em>n° 3059 du 12/02/2020</em>
+            </span>
+          </p>
+          <p class="bg-light p-3 clearfix">
+            <span class="far fa-check-square"></span>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere
+            erat a ante.
+            <br />
+            <span class="float-right small">
+              <em>n° 3059 du 12/02/2020</em>
+            </span>
+          </p>
+          <p class="bg-light p-3 clearfix">
+            <span class="far fa-check-square"></span>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere
+            erat a ante.
+            <br />
+            <span class="float-right small">
+              <em>n° 3059 du 12/02/2020</em>
+            </span>
+          </p>
+        </div>
+      </div>
+    {% else %}
+      <div class="alert alert-danger">
+        Ceci est une anomalie. Vous ne devriez pas pouvoir atteindre cette page.
+      </div>
+    {% endif %}
+  </div>
+{% endblock %}

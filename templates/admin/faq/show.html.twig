@@ -1,0 +1,31 @@
+{% extends 'base.admin.html.twig' %}
+
+{% block title %}Admin FAQ {{ faq.id }} {{ faq.title }}{% endblock %}
+
+{% block body %}
+	<div class="container">
+
+		<h1>FAQ #{{ faq.id }} - réf. Belair {{ faq.num }}
+			<br>
+			titre : <em>{{ faq.title }}</em>
+		</h1>
+		<h2 class="h3 text-light">
+			<span class="fas fa-tag mr-2"></span>
+			Catégorie :
+			<em>{{ faq.category.label }}</em>
+		</h2>
+		<div class="clearfix my-3">
+			<a href="{{ path('admin_faq_edit', {'id': faq.id}) }}" class="btn btn-info float-right">Modifier cette FAQ</a>
+			<a href="{{ path('admin_faqs_index') }}" class="btn btn-secondary float-right">Retour à la liste</a>
+		</div>
+		<div class="p-3 bg-light text-dark">
+			{% if faq.format == 'html' %}
+                {{ faq.content|raw }}
+            {% else %}
+                {{ faq.content|nl2br }}
+            {% endif %}
+		</div>
+
+	</div>
+
+{% endblock %}

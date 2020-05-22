@@ -1,0 +1,63 @@
+<nav class="nav flex-column flex-nowrap navbar-dark bg-dark">
+  <li class="nav-item">
+    <a href="{{ path('admin_homepage') }}" class="nav-link">
+      <span class="fas fa-home mr-2"></span>Homepage
+    </a>
+  </li>
+
+  <li class="nav-item">
+    <a href="{{ path('admin_dashboard') }}" class="nav-link">
+      <span class="fas fa-tachometer-alt mr-2"></span>Dashboard
+    </a>
+  </li>
+
+  <li class="nav-item">
+    <a href="#" class="nav-link">
+      <span class="fas fa-users mr-2"></span>Utilisateurs
+    </a>
+  </li>
+
+  <li class="nav-item dropdown">
+    <a href="#"
+      class="nav-link dropdown-toggle"
+      data-toggle="dropdown"
+      role="button"
+      aria-haspopup="true"
+      aria-expanded="false">
+      <span class="fas fa-film mr-2"></span>Carousels
+    </a>
+    <div class="dropdown-menu">
+      <a class="dropdown-item" href="{{ path('admin_carousel_index') }}">
+        <span class="fas fa-list mr-2"></span>Liste des carousels
+      </a>
+    </div>
+  </li>
+  <li class="nav-item dropdown">
+    <a href="#"
+      class="nav-link dropdown-toggle"
+      data-toggle="dropdown"
+      role="button"
+      aria-haspopup="true"
+      aria-expanded="false">
+      <span class="fas fa-images mr-2"></span>Gestion des images
+    </a>
+    <div class="dropdown-menu">
+      <a class="dropdown-item" href="{{ path('admin_image_index') }}"><span class="fas fa-list mr-2"></span>Liste</a>
+      <a class="dropdown-item" href="{{ path('admin_image_upload') }}"><span class="fas fa-upload mr-2"></span>Upload</a>
+    </div>
+  </li>
+  <li class="nav-item dropdown">
+    <a href="#"
+      class="nav-link dropdown-toggle"
+      data-toggle="dropdown"
+      role="button"
+      aria-haspopup="true"
+      aria-expanded="false">
+      <span class="fas fa-tags mr-2"></span></span>Gestion des FAQs
+    </a>
+    <div class="dropdown-menu">
+      <a class="dropdown-item" href="{{ path('admin_faqs_index') }}"><span class="fas fa-list mr-2"></span>Liste</a>
+      <a class="dropdown-item" href="{{ path('admin_faq_new') }}"><span class="fas fa-list mr-2"></span>Créer une Faq</a>
+    </div>
+  </li>
+</nav>

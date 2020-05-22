@@ -1,0 +1,47 @@
+{% extends 'base.admin.html.twig' %}
+
+{% block title %}Admin FAQs list{% endblock %}
+
+{% block body %}
+<div class="container-fluid admin">
+    <h1>Liste des FAQs</h1>
+
+    {# {{ dump(faqs) }} #}
+
+    {% for category in categories %}
+
+        <h2 class="h3 text-light"><span class="fas fa-tag mr-2"></span> Catégorie : <em>{{ category.label }}</em></h2>
+
+        <table class="table table-hover">
+            <thead class="bg-light text-dark">
+                <tr>
+                    <th class="text-center">actions</th>
+                    <th class="text-center">format</th>
+                    <th class="text-left">id.</th>
+                    <th class="text-left">num. BAI</th>
+                    <th>titre</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for faq in faqs[category.id] %}
+                    <tr>
+                        <td style="width: 150px;" class="text-center">
+                            <a class="btn btn-sm btn-success fas fa-eye" href="{{ path('admin_faq_show', {'id': faq.id}) }}"></a>
+                            <a class="btn btn-sm btn-info fas fa-edit" href="{{ path('admin_faq_edit', {'id': faq.id}) }}"></a>
+                            <a class="btn btn-sm btn-danger fas fa-trash" href="{{ path('admin_faq_show', {'id': faq.id}) }}"></a>
+                        </td>
+                        <td style="width: 50px;" class="text-center">
+                            <span class="badge badge-secondary">{{ faq.format }}</span>
+                        </td>
+                        <td style="width: 75px;" class="text-left">{{ faq.id }}</td>
+                        <td style="width: 100px;" class="text-left">{{ faq.num }}</td>
+                        <td>{{ faq.title }}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        <hr>
+    {% endfor %}
+
+</div>
+{% endblock %}

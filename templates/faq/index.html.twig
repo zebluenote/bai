@@ -1,0 +1,24 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Les FAQs{% endblock %}
+
+{% block body %}
+<div class="container">
+    <h1>Foire aux questions</h1>
+
+    {# {{ dump(faqs) }} #}
+
+    {% for category in categories %}
+
+        <h2 class="h3 text-primary"><span class="fas fa-tag mr-2"></span> Catégorie : <em>{{ category.label }}</em></h2>
+
+        <table class="table table-hover">
+            {% for faq in faqs[category.id] %}
+            <tr><td style="width: 50px;" class="text-center"><a class="fas fa-eye text-success" href="{{ path('faq_show', {'id': faq.id}) }}"></a><span class="badge badge-info">{{ faq.format }}</span></td><td>{{ faq.title }}</td></tr>
+            {% endfor %}
+        </table>
+        
+    {% endfor %}
+
+</div>
+{% endblock %}

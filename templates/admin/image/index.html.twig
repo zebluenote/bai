@@ -1,0 +1,52 @@
+{% extends 'base.admin.html.twig' %}
+
+{% block title %}Admin - Gestion des images du site
+{% endblock %}
+
+{% block body %}
+	<div class="container-fluid">
+		<h1>Liste des images du site</h1>
+
+		<ul class="nav nav-tabs" id="myTab" role="tablist">
+
+			{% for destination in destinations %}
+				<li class="nav-item" role="presentation">
+					<a class="nav-link {% if loop.first %} active {% endif %}" id="{{ destination }}-tab" data-toggle="tab" href="#{{ destination }}" role="tab" aria-controls="{{ destination }}" aria-selected="true">{{ destination }}</a>
+				</li>
+            {% endfor %}
+
+        </ul>
+
+        <div class="tab-content bg-secondary p-4" id="myTabContent">
+
+			{% for destination in destinations %}
+
+                <div class="tab-pane fade {% if loop.first %} show active {% endif %}" id="{{ destination }}" role="tabpanel" aria-labelledby="{{ destination }}-tab">
+
+                    <h2 class="p-3 bg-light text-dark">Contenu du répertoire [{{ destination }}]</h2>
+                
+                    <div class="row">
+                        {% for image in images[destination] %}
+                            <div class="col-md-2 mx-3 my-3">
+                                <div class="card" style="width: 16rem;">
+                                    <img src="/images/{{ destination }}/{{ image }}" class="card-img-top" alt="{{ destination }} {{ image }}">
+                                    <div
+                                        class="card-body clearfix">
+                                        {# <h5 class="card-title">{{ image }}</h5> #}
+                                        <p>
+                                            <small>{{ image }}</small>
+                                        </p>
+                                        <a href="#" class="btn btn-sm btn-secondary float-right">Go somewhere</a>
+                                    </div>
+                                </div>
+                            </div>
+                        {% endfor %}
+                    </div>
+
+                </div>
+			{% endfor %}
+
+        </div>
+
+    </div>
+{% endblock %}

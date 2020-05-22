@@ -1,0 +1,26 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}FAQ
+	{{ faq.title }}
+{% endblock %}
+
+{% block body %}
+	<div class="container">
+
+		<h1>FAQ #{{ faq.id }} : <em>{{ faq.title }}</em></h1>
+		<h2 class="h3 text-primary">
+			<span class="fas fa-tag mr-2"></span>
+			Catégorie :
+			<em>{{ faq.category.label }}</em>
+		</h2>
+		<div style="border-left: 5px solid #ccc; " class="bg-light p-3">
+			{% if faq.format == 'html' %}
+                {{ faq.content|raw }}
+            {% else %}
+                {{ faq.content|nl2br }}
+            {% endif %}
+		</div>
+
+	</div>
+
+{% endblock %}
