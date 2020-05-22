@@ -2,11 +2,16 @@
 
 namespace App\Controller;
 
+use Belair\BasAuthClient;
+
+
 use App\Repository\CarouselImageRepository;
 use App\Repository\CarouselRepository;
 use Symfony\Component\Routing\Annotation\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+
+
 
 class PublicController extends AbstractController
 {
@@ -30,7 +35,19 @@ class PublicController extends AbstractController
      */
     public function admin()
     {
-        return $this->render('admin/homepage.html.twig', []);
+        // {"nom":"ESPCLI","ip":"bai-pdc-sec","port":"8081","base":"0","user":"SOAPINTRANET","pwd":"K7!@udioHD120","useSessionSC":"1"}
+        $authClient = new BasAuthClient( $this->getParameter('BAS_URL'), array("trace" => true, "exceptions" => true));
+        $sc = $authClient->OpenSession("SOAPINTRANET", "K7!@udioHD120");
+        dump($sc);
+        $sysInfo = $authClient->GetSysInfo();
+        dump($sysInfo);
+
+        return $this->render('admin/homepage.html.twig', [
+            'BAS_DATETIME_FMT' => $this->getParameter('BAS_DATETIME_FMT'),
+            'BAS_NS_URI' => $this->getParameter('BAS_NS_URI'),
+            'BAS_ENVELOPE_NS' => $this->getParameter('BAS_ENVELOPE_NS'),
+            'BAS_TYPE_NS' => $this->getParameter('BAS_TYPE_NS')
+        ]);
     }
 
     /**

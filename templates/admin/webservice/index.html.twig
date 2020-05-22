@@ -1,0 +1,56 @@
+{% extends 'base.admin.html.twig' %}
+
+{% block title %}Liste des web-services
+{% endblock %}
+
+{% block body %}
+	<div class="container-fluid">
+		<h1>Liste des web-services</h1>
+		<table class="table table-hover">
+			<thead>
+				<tr>
+					<th class="text-center" style="width: 50px;">id</th>
+					<th>name</th>
+					<th>ip/server-name</th>
+					<th class="text-center">port</th>
+					<th>user</th>
+					<th>pwd</th>
+					<th class="text-center">isActive</th>
+					<th class="text-center" style="width: 200px;">actions</th>
+				</tr>
+			</thead>
+			<tbody>
+				{% for ws in webservices %}
+					<tr>
+						<td class="text-center">{{ws.id}}</td>
+						<td>{{ws.params.name}}</td>
+						<td>{{ws.params.ip}}</td>
+						<td class="text-center">{{ws.params.port}}</td>
+						<td>{{ws.params.user}}</td>
+						<td>{{ws.params.pwd}}</td>
+						<td class="text-center">
+							<div class="custom-control custom-switch">
+								<input type="checkbox" class="custom-control-input" id="customSwitch1" checked="checked">
+								<label class="custom-control-label" for="customSwitch1"></label>
+							</div>
+						</td>
+						<td class="text-center">
+							<a href="{{ path('admin_web_service_show', {'id': ws.id}) }}" class="btn btn-sm btn-secondary">
+								<span class="fas fa-eye"></span>
+							</a>
+							<a href="#" class="btn btn-sm btn-success">
+								<span class="fas fa-heartbeat"></span>
+							</a>
+							<a href="#" class="btn btn-sm btn-info">
+								<span class="fas fa-edit"></span>
+							</a>
+							<a href="#" class="btn btn-sm btn-danger">
+								<span class="fas fa-trash"></span>
+							</a>
+						</td>
+					</tr>
+				{% endfor %}
+			</tbody>
+		</table>
+	</div>
+{% endblock %}

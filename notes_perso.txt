@@ -4,6 +4,17 @@ TODO :
     Annotation : @Route("/xxx", name="xxx", methods={"POST"}, options={"expose"=true})
         voir l'option  expose !!!
 
+Belair Application Server :
+===========================
+
+    {"nom":"ESPCLI","ip":"bai-pdc-sec","port":"8081","base":"0","user":"SOAPINTRANET","pwd":"K7!@udioHD120","useSessionSC":"1"}
+
+    Constantes d'application :
+        const BAS_DATETIME_FMT = "Y-m-d H:i:s.u";
+        const BAS_NS_URI = "http://belair-info.com/bas/services";
+        const BAS_ENVELOPE_NS = "ns1";
+        const BAS_TYPE_NS = "xsi";
+
 Démarrage de l'environnement de DEV
 ==================================
     symfony server:start --no-tls

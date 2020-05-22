@@ -49,3 +49,15 @@ span.rating i {
        color: white; 
     }
 }
+
+.custom-control-input:checked ~ .custom-control-label::before {
+    color: #fff;
+    background-color: #62c462;
+    border: #2c552c solid 3px;
+}
+
+.custom-control-label::before {
+    color: #fff;
+    border-color: #3A3F44;
+    background-color: #3A3F44;
+}

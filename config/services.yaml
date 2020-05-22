@@ -7,6 +7,12 @@ parameters:
     images_directory_path: '%kernel.project_dir%/public/images'
     carousel_images_directory: '%kernel.project_dir%/public/images/carousels'
     image_destinations: 'carousels,products,progiciel,misc'
+    # BAS Beleir Application Server constants
+    BAS_DATETIME_FMT: "Y-m-d H:i:s.u"
+    BAS_NS_URI: "http://belair-info.com/bas/services"
+    BAS_ENVELOPE_NS: "ns1"
+    BAS_TYPE_NS: "xsi"
+    BAS_URL: "http://192.192.192.71:8081"
 
 services:
     # default configuration for services in *this* file

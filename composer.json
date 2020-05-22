@@ -1,4 +1,10 @@
 {
+    "authors": [
+        {
+            "name": "Arnaud FROUIN",
+            "email": "arnaud.frouin@belair-info.fr"
+        }
+    ],
     "type": "project",
     "license": "proprietary",
     "require": {
@@ -47,6 +53,7 @@
         "sort-packages": true
     },
     "autoload": {
+        "classmap": ["vendor/baimodelbas/"],
         "psr-4": {
             "App\\": "src/"
         }
