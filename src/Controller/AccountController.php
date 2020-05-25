@@ -66,7 +66,7 @@ class AccountController extends AbstractController
         $user = $this->getUser();
 
         $companyId = $user->getCustomer()->getId();
-        $customer =$customerRepo->findOneBy(['id' => $companyId]);
+        $customer = $customerRepo->findOneBy(['id' => $companyId]);
         
         return $this->render('account/profile.html.twig', [
             'user' => $user,

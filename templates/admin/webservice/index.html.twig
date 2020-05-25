@@ -28,12 +28,20 @@
 						<td class="text-center">{{ws.params.port}}</td>
 						<td>{{ws.params.user}}</td>
 						<td>{{ws.params.pwd}}</td>
+
 						<td class="text-center">
 							<div class="custom-control custom-switch">
-								<input type="checkbox" class="custom-control-input" id="customSwitch1" checked="checked">
-								<label class="custom-control-label" for="customSwitch1"></label>
+								<input type="checkbox" class="custom-control-input" data-action="status-toggler" data-href="{{ path('admin_webservice_status_toggle', {'id': ws.id}) }}" data-wsid="{{ws.id}}" data-status="{{ws.isActive}}" id="customSwitch{{ws.id}}" {% if ws.isActive %} checked="checked" {% endif %}>
+								<label class="custom-control-label" id="customSwitchLabel{{ws.id}}" for="customSwitch{{ws.id}}">
+									{% if ws.isActive %}
+										on
+									{% else %}
+										off
+									{% endif %}
+								</label>
 							</div>
 						</td>
+
 						<td class="text-center">
 							<a href="{{ path('admin_web_service_show', {'id': ws.id}) }}" class="btn btn-sm btn-secondary">
 								<span class="fas fa-eye"></span>
@@ -53,4 +61,45 @@
 			</tbody>
 		</table>
 	</div>
+{% endblock %}
+{% block javascripts %}
+
+	<script type="text/javascript">
+		$(document).ready(function() {
+
+			$('[data-action="status-toggler"]').on('change', function (event) {
+				const wsId = $(this).attr('data-wsid');
+				const wsStatus = $(this).attr('data-status');
+				const href = $(this).attr('data-href');
+
+				// TODO : appeler cette action en post uniquement => requirements dans le controller
+				axios.post(href).then(function (response) {
+					
+					if (response.data.code == 200) { // OK donc on peut appeler toggleStatus(label, element, status, isError)
+						toggleStatus($('#customSwitchLabel' + wsId), $(this), response.data.data.newStatus, false);
+						$.notify($('#customSwitchLabel' + wsId), response.data.message, {
+							elementPosition: 'top center',
+							autoHideDelay: 2000,
+							style: 'bootstrap',
+							className: 'success',
+							arrowShow: true,
+							arrowSize: 5
+						});
+					} else { 
+						toggleStatus($('#customSwitchLabel' + wsId), $(this), response.data.data.newStatus, true);
+						$.notify($('#customSwitchLabel' + wsId), response.data.message, {
+							elementPosition: 'top center',
+							autoHideDelay: 2000,
+							style: 'bootstrap',
+							className: 'error',
+							arrowShow: true,
+							arrowSize: 5
+						});
+					}
+				});
+			});
+
+
+		});
+	</script>
 {% endblock %}

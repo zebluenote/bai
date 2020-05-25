@@ -1,5 +1,12 @@
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 const $ = require('jquery');
-global.$ = $;
+global.$ = global.jQuery = $;
+
+const axios = require('axios').default;
+global.axios = axios;
+
 import 'popper.js';
 import 'bootstrap';
-import Cropper from 'cropperjs/dist/cropper';
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+

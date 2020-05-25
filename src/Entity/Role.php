@@ -29,6 +29,11 @@ class Role
      */
     private $users;
 
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $description;
+
     public function __construct()
     {
         $this->users = new ArrayCollection();
@@ -80,6 +85,18 @@ class Role
     public function __toString()
     {
         return $this->title;
+    }
+
+    public function getDescription(): ?string
+    {
+        return $this->description;
+    }
+
+    public function setDescription(?string $description): self
+    {
+        $this->description = $description;
+
+        return $this;
     }
 
 }

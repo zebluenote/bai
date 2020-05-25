@@ -1,3 +1,19 @@
+****************
+COMMANDES UTILES
+****************
+
+    Symfony console :
+    =================
+        php bin/console debug:autowiring --all
+
+    Démarrage de l'environnement de DEV
+    ==================================
+        symfony server:start --no-tls
+        npm run dev-server
+
+
+
+
 TODO :
 ======
     Notifications : notify js, bootstrap toast
@@ -14,11 +30,6 @@ Belair Application Server :
         const BAS_NS_URI = "http://belair-info.com/bas/services";
         const BAS_ENVELOPE_NS = "ns1";
         const BAS_TYPE_NS = "xsi";
-
-Démarrage de l'environnement de DEV
-==================================
-    symfony server:start --no-tls
-    npm run dev-server
 
 Variables globales de twig.yaml
 ===============================

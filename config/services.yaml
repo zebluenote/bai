@@ -12,7 +12,6 @@ parameters:
     BAS_NS_URI: "http://belair-info.com/bas/services"
     BAS_ENVELOPE_NS: "ns1"
     BAS_TYPE_NS: "xsi"
-    BAS_URL: "http://192.192.192.71:8081"
 
 services:
     # default configuration for services in *this* file
@@ -34,3 +33,4 @@ services:
 
     # add more service definitions when explicit configuration is needed
     # please note that last definitions always *replace* previous ones
+

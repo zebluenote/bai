@@ -7,7 +7,8 @@
 		</title>
 		<meta name="viewport" content="width=device-width, user-scalable=no"/>
 		{{ encore_entry_link_tags('css/admin') }}
-		<script src="https://kit.fontawesome.com/92d6f122cc.js" crossorigin="anonymous"></script>
+		{# <script src="https://kit.fontawesome.com/92d6f122cc.js" crossorigin="anonymous"></script> #}
+		<script src="/js/fas.92d6f122cc.js"></script>
 		{% block stylesheets %}{% endblock %}
 	</head>
 	<body>
@@ -34,6 +35,8 @@
 			</div>
 		</div>
 		{{ encore_entry_script_tags('js/admin') }}
+		<script src="/js/notify.min.js"></script>
+		<script src="/js/bai.js"></script>
 		{% block javascripts %}{% endblock %}
 	</body>
 </html>

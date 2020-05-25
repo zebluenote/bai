@@ -139,7 +139,7 @@ class CarouselController extends AbstractController
     /**
      * Permet de modifier le status d'un carousel en ajax
      * 
-     * @Route("admin-carousel-status-toggle/{id}", name="admin_carousel_status_toggle")
+     * @Route("admin-carousel-status-toggle/{id}", name="admin_carousel_status_toggle", methods={"POST"})
      * 
      * @IsGranted("ROLE_ADMIN")
      * 

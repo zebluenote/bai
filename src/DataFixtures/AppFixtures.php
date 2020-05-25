@@ -76,6 +76,7 @@ class GeneralFixtures extends Fixture
         // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
         $adminRole = new Role();
         $adminRole->setTitle('ROLE_ADMIN');
+        $adminRole->setDescription("Administrateur BELAIR. Attention ce rôle permet d'altérer le fonctionnement de l'ensemble des sites Belair !");
         $manager->persist($adminRole);
         // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 

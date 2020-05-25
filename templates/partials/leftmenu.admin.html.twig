@@ -1,4 +1,5 @@
 <nav class="nav flex-column flex-nowrap navbar-dark bg-dark">
+
   <li class="nav-item">
     <a href="{{ path('admin_homepage') }}" class="nav-link">
       <span class="fas fa-home mr-2"></span>Homepage
@@ -17,13 +18,6 @@
     </a>
   </li>
 
-
-  <li class="nav-item">
-    <a href="#" class="nav-link">
-      <span class="fas fa-users mr-2"></span>Utilisateurs
-    </a>
-  </li>
-
   <li class="nav-item dropdown">
     <a href="#"
       class="nav-link dropdown-toggle"
@@ -31,14 +25,25 @@
       role="button"
       aria-haspopup="true"
       aria-expanded="false">
-      <span class="fas fa-film mr-2"></span>Carousels
+      <span class="fas fa-users mr-2"></span></span>Gestion des utilisateurs
     </a>
     <div class="dropdown-menu">
-      <a class="dropdown-item" href="{{ path('admin_carousel_index') }}">
-        <span class="fas fa-list mr-2"></span>Liste des carousels
+      <a href="{{ path('admin_user_index') }}" class="nav-link">
+        <span class="fas fa-table mr-2"></span>Liste des utilisateurs
+      </a>
+      <a href="{{ path('admin_role_index') }}" class="nav-link">
+        <span class="fas fa-user-tag mr-2"></span>Gestion des rôles
       </a>
     </div>
   </li>
+
+
+  <li class="nav-item">
+    <a href="{{ path('admin_carousel_index') }}" class="nav-link">
+      <span class="fas fa-film mr-2"></span>Carousels
+    </a>
+  </li>
+
   <li class="nav-item dropdown">
     <a href="#"
       class="nav-link dropdown-toggle"
@@ -53,6 +58,7 @@
       <a class="dropdown-item" href="{{ path('admin_image_upload') }}"><span class="fas fa-upload mr-2"></span>Upload</a>
     </div>
   </li>
+
   <li class="nav-item dropdown">
     <a href="#"
       class="nav-link dropdown-toggle"
@@ -67,4 +73,5 @@
       <a class="dropdown-item" href="{{ path('admin_faq_new') }}"><span class="fas fa-list mr-2"></span>Créer une Faq</a>
     </div>
   </li>
+
 </nav>

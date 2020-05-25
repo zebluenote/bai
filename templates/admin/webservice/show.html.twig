@@ -1,34 +1,79 @@
 {% extends "base.admin.html.twig" %}
 
-{% block title %}Détail du webservice {{ws.id}} {{ws.params.name}} {% endblock %}
+{% block title %}
+    {% if sysinfo|length > 0 %}
+        Détail du webservice {{ws.id}} {{ws.params.name}}
+    {% else %}
+        Détail du webservice : error 
+    {% endif %}
+{% endblock %}
 
 {% block body %}
-<div class="container-fluid">
-    <h1>Webservice #{{ws.id}} - {{ws.params.name}}</h1>
-    <div class="row flex">
-        <div class="col-sm-12 col-md-12 col-lg-6 col-xl-4">
-            <dl class="row">
-                <dt class="col-3">Name</dt><dd class="col-9">{{ws.params.name}}</dd>
-                <dt class="col-3">IP/Server</dt><dd class="col-9">{{ws.params.ip}}</dd>
-                <dt class="col-3">Port</dt><dd class="col-9">{{ws.params.port}}</dd>
-                <dt class="col-3">Username</dt><dd class="col-9">{{ws.params.user}}</dd>
-                <dt class="col-3">Pwd</dt><dd class="col-9">{{ws.params.pwd}}</dd>
-            </dl>
-        </div>
-        <div class="col-sm-12 col-md-12 col-lg-6 col-xl-8">
-            <dl class="row">
-                <dt class="col-3">Application name</dt><dd class="col-9">APP{{sysinfo.ApplicationName}}</dd>
-                <dt class="col-3">Operating System</dt><dd class="col-9">{{sysinfo.OSVersionName}}</dd>
-                <dt class="col-3">Version</dt><dd class="col-9">{{sysinfo.VersionInfo.Version}}</dd>
-                <dt class="col-3">Time bias</dt><dd class="col-9">{{sysinfo.TimeBias}} mn</dd>
-            </dl>
-        </div>
+    <div class="container-fluid">
+        {% if sysinfo|length > 0 %}
+            <h1>Webservice #{{ws.id}} - {{ws.params.name}}</h1>
+            <div class="row flex">
+                <div class="col-sm-12 col-md-12 col-lg-6 col-xl-4">
+                    <dl class="row">
+                        <dt class="col-3">Name</dt><dd class="col-9">{{ws.params.name}}</dd>
+                        <dt class="col-3">Protocol</dt><dd class="col-9">{{ws.params.protocol}}</dd>
+                        <dt class="col-3">IP/Server</dt><dd class="col-9">{{ws.params.ip}}</dd>
+                        <dt class="col-3">Port</dt><dd class="col-9">{{ws.params.port}}</dd>
+                        <dt class="col-3">Username</dt><dd class="col-9">{{ws.params.user}}</dd>
+                        <dt class="col-3">Pwd</dt><dd class="col-9">{{ws.params.pwd}}</dd>
+                    </dl>
+                </div>
+                <div class="col-sm-12 col-md-12 col-lg-6 col-xl-8">
+                    <dl class="row">
+                        <dt class="col-3">Application name</dt><dd class="col-9">APP{{sysinfo.ApplicationName}}</dd>
+                        <dt class="col-3">Operating System</dt><dd class="col-9">{{sysinfo.OSVersionName}}</dd>
+                        <dt class="col-3">Version</dt><dd class="col-9">{{sysinfo.VersionInfo.Version}}</dd>
+                        <dt class="col-3">Time bias</dt><dd class="col-9">{{sysinfo.TimeBias}} mn</dd>
+                    </dl>
+                </div>
+            </div>
+            <span class="fas fa-heartbeat text-success"></span>
+            <em>Ce webservice a répondu à {{datetime|date("H:i:s", "Europe/Paris")}}</em>
+            
+            <table class="table table-hover">
+            <thead>
+                <tr>
+                    <th class="text-center">Nature</th>
+                    <th>Contrat</th>
+                    <th>Numero</th>
+                    <th>Debeffet</th>
+                    <th>C_TITRFAC</th>
+                    <th class="text-right">Totquit</th>
+                    <th class="text-center">Prelevok</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for invoice in invoices %}
+                    <tr>
+                        <td class="text-center">{{invoice.Nature}}</td>
+                        <td>{{invoice.Contrat}}</td>
+                        <td>{{invoice.Numero}}</td>
+                        <td>{{invoice.Debeffet|date("d/m/Y")}}</td>
+                        <td>{{invoice.C_TITRFAC}}</td>
+                        <td class="text-right">{{invoice.Totquit|number_format(2, ',', ' ')}}</td>
+                        <td class="text-center">{{invoice.Prelevok}}</td>
+                    </tr>
+                {% else %}
+                    <tr>
+                        <td><div class="alert alert-warning">
+                            Aucune facture n'a été trouvée
+                        </div></td>
+                    </tr>
+                {% endfor %}
+
+            </tbody>
+            </table>
+        {% else %}
+            <div class="alert alert-info">
+                Aucune information à afficher concernant ce web-service
+            </div>
+        {% endif %}
     </div>
-    <span class="fas fa-heartbeat text-success"></span>
-     <em>Ce webservice a répondu à {{datetime|date("H:i:s", "Europe/Paris")}}</em>
-    
-    
-    
-</div>
-    
 {% endblock %}
+
+    

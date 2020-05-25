@@ -1,0 +1,46 @@
+{% extends "base.admin.html.twig" %}
+
+{% block title %}Edition d'un utilisateur{% endblock %}
+
+{% block body %}
+    <div class="container-fluid">
+        <h1>Edition d'un utilisateur</h1>
+
+        {{ dump(user) }}
+
+        {{ form_start(form) }}
+        {{ form_widget(form) }}
+        <button type="submit" class="btn btn-primary">Enregistrer</button>
+        {{ form_end(form) }}
+
+<p>
+
+{% for role in user.roles %}
+{{ role }}     
+{% endfor %}
+
+</p>
+
+
+    </div>
+{% endblock %}
+
+{% block javascripts %}
+    
+  <script type="text/javascript">
+    $(document).ready(function() {
+
+
+{% for role in user.roles %}
+
+$('.form-check-input[value="{{ role }}"]').prop("checked", true);
+     
+{% endfor %}
+
+      
+
+     });
+  </script>
+
+
+{% endblock %}

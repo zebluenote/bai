@@ -1,0 +1,42 @@
+{% extends 'base.admin.html.twig' %}
+
+{% block title %}Gestion des rôles{% endblock %}
+
+{% block body %}
+<div class="container-fluid">
+    <h1>Gestion des rôles</h1>
+
+    <div class="alert alert-info">
+        <ul>
+            <li>Tous les rôles doivent débuter par ROLE_ et sont gérés en majuscules dans le système.</li>
+            <li>La modification des rôles est très délicate et ne doit être faite qu'en connaissance de cause. Ceci peut conduire à d'éventuels problèmes de sécurité.</li>
+        </ul>
+    </div>
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th>id.</th>
+                <th>title</th>
+                <th>description</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>-</td>
+                <td>ROLE_USER</td>
+                <td> <i class="fas fa-exclamation-triangle text-danger mr-2"></i> Ce rôle existe par défaut dans le système et ne peut pas être modifié</td>
+                <td>&nbsp;</td>
+            </tr>
+            {% for role in roles %}
+            <tr>
+                <td>{{ role.id }}</td>
+                <td>{{ role.title }}</td>
+                <td>{{ role.description | raw }}</td>
+                <td></td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}
